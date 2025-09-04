@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Web Project 🎉</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="topbar">
+        <h1>🎉 JavaScript Interactivity Lab</h1>
+        <button
+          id="themeToggle"
+          class="btn"
+          aria-pressed="false"
+          title="Toggle theme"
+        >
+          🌙 Dark Mode
+        </button>
+      </header>
+
+      <!-- ==================== Part 1: Event Handling ==================== -->
+      <section>
+        <h2>🎯 Part 1: Event Handling</h2>
+
+        <div class="card">
+          <button id="clickMeBtn" class="btn">Click Me</button>
+          <p id="clickMessage" class="muted"></p>
+        </div>
+
+        <div class="card">
+          <label class="lbl" for="typeBox">Type box (keyup):</label>
+          <input
+            id="typeBox"
+            class="input"
+            type="text"
+            placeholder="Start typing…"
+          />
+          <p id="typeMessage" class="muted"></p>
+        </div>
+
+        <div class="card">
+          <div
+            id="hoverBox"
+            class="hover-box"
+            tabindex="0"
+            aria-label="Interactive color box"
+          >
+            Hover or focus me ✨
+          </div>
+          <p id="hoverMsg" class="muted"></p>
+        </div>
+      </section>
+
+      <!-- ==================== Part 2: Interactive Elements ==================== -->
+      <section>
+        <h2>🎮 Part 2: Interactive Elements</h2>
+
+        <!-- Counter -->
+        <div class="card">
+          <h3>Counter (double-click to reset)</h3>
+          <div class="counter">
+            <button id="decrease" class="btn">➖</button>
+            <span id="count" class="count">0</span>
+            <button id="increase" class="btn">➕</button>
+            <button
+              id="randomize"
+              class="btn btn-ghost"
+              title="Set to a random value"
+            >
+              🎲 Random
+            </button>
+          </div>
+          <p class="muted">
+            Tip: <kbd>Shift</kbd>+Click increases/decreases by 5.
+          </p>
+        </div>
+
+        <!-- Like / Favorite -->
+        <div class="card">
+          <h3>Like Toggle</h3>
+          <button id="likeBtn" class="btn" aria-pressed="false">♡ Like</button>
+          <p id="likeMsg" class="muted"></p>
+        </div>
+
+        <!-- Dropdown -->
+        <div class="card">
+          <h3>Simple Dropdown</h3>
+          <div class="dropdown">
+            <button
+              id="dropdownBtn"
+              class="btn"
+              aria-expanded="false"
+              aria-haspopup="true"
+            >
+              Open Menu ⬇️
+            </button>
+            <ul id="dropdownMenu" class="menu hidden" role="menu">
+              <li role="menuitem">
+                <button class="menu-item" data-action="toast">
+                  Show Toast
+                </button>
+              </li>
+              <li role="menuitem">
+                <button class="menu-item" data-action="open-modal">
+                  Open Modal
+                </button>
+              </li>
+              <li role="menuitem">
+                <button class="menu-item" data-action="copy">Copy Code</button>
+              </li>
+            </ul>
+          </div>
+          <div class="copy-row">
+            <input
+              id="copyInput"
+              class="input"
+              value="REF-CODE-2025"
+              readonly
+            />
+            <button id="copyBtn" class="btn btn-ghost">📋 Copy</button>
+          </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="card">
+          <h3>Tabbed Interface</h3>
+          <div class="tabs" role="tablist" aria-label="Demo tabs">
+            <button
+              class="tab active"
+              role="tab"
+              aria-selected="true"
+              data-tab="tab-1"
+            >
+              Overview
+            </button>
+            <button
+              class="tab"
+              role="tab"
+              aria-selected="false"
+              data-tab="tab-2"
+            >
+              Details
+            </button>
+            <button
+              class="tab"
+              role="tab"
+              aria-selected="false"
+              data-tab="tab-3"
+            >
+              More
+            </button>
+          </div>
+          <div class="tab-panels">
+            <div id="tab-1" class="tab-panel show" role="tabpanel">
+              This is a simple tab UI.
+            </div>
+            <div id="tab-2" class="tab-panel" role="tabpanel">
+              Tabs switch content without reloading the page.
+            </div>
+            <div id="tab-3" class="tab-panel" role="tabpanel">
+              Use ARIA and classes for accessibility.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== Part 3: Form Validation ==================== -->
+      <section>
+        <h2>📋 Part 3: Form Validation</h2>
+        <form id="myForm" novalidate>
+          <!-- Name -->
+          <label class="lbl" for="name">Full Name</label>
+          <input id="name" class="input" type="text" placeholder="Jane Doe" />
+          <small id="nameError" class="error"></small>
+
+          <!-- Email -->
+          <label class="lbl" for="email">Email Address</label>
+          <input
+            id="email"
+            class="input"
+            type="email"
+            placeholder="jane@example.com"
+          />
+          <small id="emailError" class="error"></small>
+
+          <!-- Phone -->
+          <label class="lbl" for="phone">Phone (digits only)</label>
+          <input
+            id="phone"
+            class="input"
+            type="tel"
+            placeholder="08012345678"
+          />
+          <small id="phoneError" class="error"></small>
+
+          <!-- Password -->
+          <label class="lbl" for="password">Password</label>
+          <div class="password-wrapper">
+            <input
+              id="password"
+              class="input"
+              type="password"
+              placeholder="Min 8, Aa1!"
+            />
+            <button type="button" id="togglePassword" class="btn btn-ghost">
+              👁️ Show
+            </button>
+          </div>
+          <div class="pw-meter" aria-hidden="true">
+            <div id="pwBar" class="pw-bar"></div>
+            <span id="pwLabel" class="pw-label">Strength: —</span>
+          </div>
+          <ul class="pw-rules">
+            <li id="ruleLen">≥ 8 characters</li>
+            <li id="ruleLow">Lowercase letter</li>
+            <li id="ruleUp">Uppercase letter</li>
+            <li id="ruleNum">Number</li>
+            <li id="ruleSpec">Special character</li>
+          </ul>
+          <small id="passwordError" class="error"></small>
+
+          <!-- Confirm Password -->
+          <label class="lbl" for="confirm">Confirm Password</label>
+          <input
+            id="confirm"
+            class="input"
+            type="password"
+            placeholder="Re-type password"
+          />
+          <small id="confirmError" class="error"></small>
+
+          <!-- Terms -->
+          <label class="chk">
+            <input id="terms" type="checkbox" />
+            <span>I agree to the terms & privacy policy.</span>
+          </label>
+          <small id="termsError" class="error"></small>
+
+          <button id="submitBtn" class="btn" type="submit">🚀 Submit</button>
+          <p id="successMessage" class="success"></p>
+        </form>
+      </section>
+    </div>
+
+    <!-- Modal -->
+    <div
+      id="modal"
+      class="modal hidden"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+    >
+      <div class="modal-card">
+        <h3 id="modalTitle">Hello from the Modal 👋</h3>
+        <p>
+          You can close me with the button, by pressing <kbd>Esc</kbd>, or
+          clicking outside.
+        </p>
+        <button id="closeModal" class="btn">Close</button>
+      </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="toast hidden" role="status" aria-live="polite">
+      Action completed!
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
